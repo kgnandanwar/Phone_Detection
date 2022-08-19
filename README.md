@@ -1,8 +1,8 @@
-# Phone Detection (Single object Detection)
-I was tasked with building an object detection algorithm that computes the location of a phone on a floor from a single RGB camera image. I was supplied with a collection of images of phones, such as the following, together with the coordinates of the phone in each image.
+# Phone Detection (Single Object Detection)
+Built an object detection algorithm that computes the location of a phone on a floor from a single RGB camera image. I was supplied with a collection of images of phones, alongwith the coordinates of the phone in each image.
 
 ## Training and testing an image classifier
-I used the given images together with the coordinates of the phone in each image to create a collection of thumbnails (windows, sub-images) each of which either contained a phone or didn't. Additionally, each thumbnail was labeled: 'positive' if the thumbnail contained a phone or 'negative' if it didn't. This data set was split into training and testing subsets. The training set was used to train a logistic regression model to classify thumbnails as containing a phone or not. Visual examination of a small set of images revealed that the classifier worked well.
+Used the given images together with the coordinates of the phone in each image to create a collection of thumbnails (windows, sub-images) each of which either contained a phone or didn't. Additionally, each thumbnail was labeled: 'positive' if the thumbnail contained a phone or 'negative' if it didn't. This data set was split into training and testing subsets. The training set was used to train a logistic regression model to classify thumbnails as containing a phone or not. Visual examination of a small set of images revealed that the classifier worked well.
 
 ## Object detection algorithm
 Having trained an image classifer, the next step was to use it to detect the location of the phone in an image. This was done by sliding a window across the image, extracting the sub-image defined by the window, and then running that thumbnail through the image classifier. I declared the window location for which the thumbnail was most likely to contain a phone (as judged by the classifier) to be the predicted location of the phone in the image. 
